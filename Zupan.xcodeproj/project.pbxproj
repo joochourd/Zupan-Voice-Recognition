@@ -19,6 +19,8 @@
 		3F6094332A99554B00B928A0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6094322A99554B00B928A0 /* ViewModel.swift */; };
 		3F6094352A99579F00B928A0 /* SpreechRecognitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6094342A99579F00B928A0 /* SpreechRecognitionView.swift */; };
 		3F6094372A995B9800B928A0 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6094362A995B9800B928A0 /* Commands.swift */; };
+		3F6094412A9BF7C800B928A0 /* SpeechRecognitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6094402A9BF7C800B928A0 /* SpeechRecognitionService.swift */; };
+		3F6094432A9BF8C300B928A0 /* CommandsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6094422A9BF8C300B928A0 /* CommandsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		3F6094322A99554B00B928A0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		3F6094342A99579F00B928A0 /* SpreechRecognitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpreechRecognitionView.swift; sourceTree = "<group>"; };
 		3F6094362A995B9800B928A0 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
+		3F6094402A9BF7C800B928A0 /* SpeechRecognitionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionService.swift; sourceTree = "<group>"; };
+		3F6094422A9BF8C300B928A0 /* CommandsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 		3F6094012A992CF800B928A0 /* Zupan */ = {
 			isa = PBXGroup;
 			children = (
+				3F6094442A9BF95A00B928A0 /* Servicies */,
 				3F6094022A992CF800B928A0 /* ZupanApp.swift */,
 				3F6094042A992CF800B928A0 /* ContentView.swift */,
 				3F6094062A992CFA00B928A0 /* Assets.xcassets */,
@@ -148,6 +153,15 @@
 				3F6094302A99552700B928A0 /* Speech.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F6094442A9BF95A00B928A0 /* Servicies */ = {
+			isa = PBXGroup;
+			children = (
+				3F6094422A9BF8C300B928A0 /* CommandsService.swift */,
+				3F6094402A9BF7C800B928A0 /* SpeechRecognitionService.swift */,
+			);
+			path = Servicies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,7 +300,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F6094432A9BF8C300B928A0 /* CommandsService.swift in Sources */,
 				3F6094052A992CF800B928A0 /* ContentView.swift in Sources */,
+				3F6094412A9BF7C800B928A0 /* SpeechRecognitionService.swift in Sources */,
 				3F6094332A99554B00B928A0 /* ViewModel.swift in Sources */,
 				3F6094352A99579F00B928A0 /* SpreechRecognitionView.swift in Sources */,
 				3F6094372A995B9800B928A0 /* Commands.swift in Sources */,
