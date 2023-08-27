@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Zupan
-//
-//  Created by Joaquin Duran on 25/08/2023.
-//
-
 import SwiftUI
 
 struct ContentView: View {

@@ -14,6 +14,11 @@
 		3F6094142A992CFA00B928A0 /* ZupanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6094132A992CFA00B928A0 /* ZupanTests.swift */; };
 		3F60941E2A992CFA00B928A0 /* ZupanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60941D2A992CFA00B928A0 /* ZupanUITests.swift */; };
 		3F6094202A992CFA00B928A0 /* ZupanUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60941F2A992CFA00B928A0 /* ZupanUITestsLaunchTests.swift */; };
+		3F60942E2A99531800B928A0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F60942D2A99531800B928A0 /* Alamofire */; };
+		3F6094312A99552700B928A0 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6094302A99552700B928A0 /* Speech.framework */; };
+		3F6094332A99554B00B928A0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6094322A99554B00B928A0 /* ViewModel.swift */; };
+		3F6094352A99579F00B928A0 /* SpreechRecognitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6094342A99579F00B928A0 /* SpreechRecognitionView.swift */; };
+		3F6094372A995B9800B928A0 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6094362A995B9800B928A0 /* Commands.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,10 @@
 		3F6094192A992CFA00B928A0 /* ZupanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZupanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F60941D2A992CFA00B928A0 /* ZupanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZupanUITests.swift; sourceTree = "<group>"; };
 		3F60941F2A992CFA00B928A0 /* ZupanUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZupanUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3F6094302A99552700B928A0 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
+		3F6094322A99554B00B928A0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		3F6094342A99579F00B928A0 /* SpreechRecognitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpreechRecognitionView.swift; sourceTree = "<group>"; };
+		3F6094362A995B9800B928A0 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F6094312A99552700B928A0 /* Speech.framework in Frameworks */,
+				3F60942E2A99531800B928A0 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +89,7 @@
 				3F6094122A992CFA00B928A0 /* ZupanTests */,
 				3F60941C2A992CFA00B928A0 /* ZupanUITests */,
 				3F6094002A992CF800B928A0 /* Products */,
+				3F60942F2A99552700B928A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +110,9 @@
 				3F6094042A992CF800B928A0 /* ContentView.swift */,
 				3F6094062A992CFA00B928A0 /* Assets.xcassets */,
 				3F6094082A992CFA00B928A0 /* Preview Content */,
+				3F6094322A99554B00B928A0 /* ViewModel.swift */,
+				3F6094342A99579F00B928A0 /* SpreechRecognitionView.swift */,
+				3F6094362A995B9800B928A0 /* Commands.swift */,
 			);
 			path = Zupan;
 			sourceTree = "<group>";
@@ -127,6 +142,14 @@
 			path = ZupanUITests;
 			sourceTree = "<group>";
 		};
+		3F60942F2A99552700B928A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F6094302A99552700B928A0 /* Speech.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +166,9 @@
 			dependencies = (
 			);
 			name = Zupan;
+			packageProductDependencies = (
+				3F60942D2A99531800B928A0 /* Alamofire */,
+			);
 			productName = Zupan;
 			productReference = 3F6093FF2A992CF800B928A0 /* Zupan.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +241,9 @@
 				Base,
 			);
 			mainGroup = 3F6093F62A992CF800B928A0;
+			packageReferences = (
+				3F60942C2A99531800B928A0 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 3F6094002A992CF800B928A0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,6 +287,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F6094052A992CF800B928A0 /* ContentView.swift in Sources */,
+				3F6094332A99554B00B928A0 /* ViewModel.swift in Sources */,
+				3F6094352A99579F00B928A0 /* SpreechRecognitionView.swift in Sources */,
+				3F6094372A995B9800B928A0 /* Commands.swift in Sources */,
 				3F6094032A992CF800B928A0 /* ZupanApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +451,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Zupan/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -447,6 +481,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Zupan/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -577,6 +613,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3F60942C2A99531800B928A0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3F60942D2A99531800B928A0 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F60942C2A99531800B928A0 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3F6093F72A992CF800B928A0 /* Project object */;
 }
