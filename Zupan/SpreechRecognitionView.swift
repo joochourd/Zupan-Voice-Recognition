@@ -22,6 +22,17 @@ struct SpreechRecognitionView: View {
                     .background(viewModel.isRecording ? Color.red : Color.blue)
                     .cornerRadius(8)
             }
+            // Dynamic list of commands
+            List {
+                ForEach(viewModel.commands, id: \.self) { command in
+                    HStack {
+                        Text("Command: \(command.commandCode)")
+                        Spacer()
+                        Text("Value: \(command.commandValue ?? "")")
+                    }
+                }
+            }
         }
     }
+    
 }

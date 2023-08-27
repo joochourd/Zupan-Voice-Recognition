@@ -5,49 +5,112 @@ class CommandsService {
     private var previousRecognizedWords: [String] = []
     private var previousRecognizedWordCount: Int = 0
     private var accumulatedParameters: [Int] = []
+    private var recognizedCommands: [Command] = []
 
     
-    // Function to filter and execute commands
-    func filterAndExecuteCommands(recognizedText: String) {
-        let currentRecognizedWords = recognizedText.split(separator: " ").map { String($0) }
+    enum RecognitionState {
+          case waitingForCommand
+          case listeningToCommand(Command)
+      }
 
-        if currentRecognizedWords.count > previousRecognizedWordCount {
-            if let lastWord = currentRecognizedWords.last {
-                switch currentState {
-                case .waitingForCommand:
-                    if let commandEnum = Command(rawValue: lastWord.lowercased()) {
-                        currentState = .listeningToCommand(commandEnum)
-                    }
-                case .listeningToCommand(let command):
-                    executeCommand(command, withParameter: lastWord)
-                }
-            }
-
-            previousRecognizedWordCount = currentRecognizedWords.count
-        }
+      // Function to filter and execute commands
+    private func reset() {
+        previousRecognizedWords = []
+        previousRecognizedWordCount = 0
+        accumulatedParameters = []
+        recognizedCommands = []
     }
+      func filterAndExecuteCommands(recognizedText: String) -> [Command] {
+          reset()
+          let currentRecognizedWords = recognizedText.split(separator: " ").map { String($0).lowercased() }
+
+          for word in currentRecognizedWords {
+              switch currentState {
+              case .waitingForCommand:
+                  if let command = Command(commandCode: word) {
+                      currentState = .listeningToCommand(command)
+                      accumulatedParameters.removeAll()
+                  }
+              case .listeningToCommand(let command):
+                  if let number = Int(word){ //, number >= 0 && number <= 9 {
+                      accumulatedParameters.append(number)
+                  } else if let newCommand = Command(commandCode: word) {
+                      // Save the previous command and its parameters
+                      command.commandValue = accumulatedParameters.map { String($0) }.joined()
+                      recognizedCommands.append(command)
+
+                      // Reset for the new command
+                      currentState = .listeningToCommand(newCommand)
+                      accumulatedParameters.removeAll()
+                  }
+              }
+          }
+
+          // Save the last command and its parameters, if any
+          if case .listeningToCommand(let command) = currentState {
+              command.commandValue = accumulatedParameters.map { String($0) }.joined()
+              recognizedCommands.append(command)
+          }
+
+          currentState = .waitingForCommand
+          return recognizedCommands
+      }
+
+    
     // Function to execute actions based on commands
     func executeCommand(_ command: Command, withParameter parameter: String) {
         print(command)
         var value: String?
 
-        switch command {
-        case .code, .count:
+        switch command.commandValue {
+        case "code", "count":
             if let number = Int(parameter), number >= 0 && number <= 9 {
                 accumulatedParameters.append(number)
                 value = accumulatedParameters.map { String($0) }.joined()
             }
-        case .reset:
+        case "reset":
             currentState = .waitingForCommand
             accumulatedParameters.removeAll()
             value = "undefined"
-        case .back:
+        case "back":
             if !accumulatedParameters.isEmpty {
                 accumulatedParameters.removeLast()
             }
             value = accumulatedParameters.isEmpty ? "undefined" : accumulatedParameters.map { String($0) }.joined()
+        default:
+            break
         }
 
         if let value = value { print("Executed command: \(command), with value: \(value)") }
     }
+
+
+//    func extractCommands(from text: String) -> [Command] {
+//        let words = text.split(separator: " ").map { String($0).lowercased() }
+//        var commands: [Command] = []
+//        var currentCommand: Command?
+//        var currentParameters: [Int] = []
+//
+//        for word in words {
+//            if let command = Command(commandCode: word){
+//                // Save the previous command and its parameters, if any
+//                if let currentCommand = currentCommand {
+//                    commands.append(command)
+//                }
+//
+//                // Reset for the new command
+//                currentCommand = command
+//                currentParameters.removeAll()
+//            } else if let number = Int(word), number >= 0 && number <= 9 {
+//                currentParameters.append(number)
+//            }
+//        }
+//
+//        // Save the last command and its parameters, if any
+//        if let currentCommand = currentCommand {
+//            commands.append(currentCommand)
+//        }
+//
+//        return commands
+//    }
 }
