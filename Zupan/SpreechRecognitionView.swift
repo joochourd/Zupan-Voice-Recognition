@@ -26,7 +26,7 @@ struct SpreechRecognitionView: View {
             List {
                 ForEach(viewModel.commands, id: \.self) { command in
                     HStack {
-                        Text("Command: \(command.commandCode)")
+                        Text("Command: \(command.commandCode.rawValue)")
                         Spacer()
                         Text("Value: \(command.commandValue ?? "")")
                     }

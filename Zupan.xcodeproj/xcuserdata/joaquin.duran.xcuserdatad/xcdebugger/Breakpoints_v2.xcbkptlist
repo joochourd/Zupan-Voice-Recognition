@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "63A93FB6-4DC2-4DF9-9ECD-1A4F29633D7B"
-            shouldBeEnabled = "No"
+            uuid = "52C45490-4881-4860-ADB5-9E384B470F4A"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Zupan/ViewModel.swift"
+            filePath = "Zupan/Servicies/CommandServiceV2.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "stopRecording()"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "recognizeCommands(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

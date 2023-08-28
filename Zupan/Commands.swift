@@ -1,18 +1,18 @@
 import Foundation
 
-class Command {
-    var id = UUID()
-    var commandCode: String
+struct Command {
+    let id = UUID()
+    let commandCode: CommandCode
     var commandValue: String?
-    var possibleCommands = ["code","count","reset","back"]
+//    var possibleCommands = ["code","count","reset","back"]
 
     init?(commandCode: String, commandValue: String? = nil) {
-        if !possibleCommands.contains(commandCode) {
-            return nil
-        }
+        guard let commandCode = CommandCode(rawValue: commandCode)  else { return nil }
 
         self.commandCode = commandCode
         self.commandValue = commandValue
+
+
     }
 }
 
@@ -28,4 +28,11 @@ extension Command: Hashable, Equatable {
     static func == (lhs: Command, rhs: Command) -> Bool {
         lhs.id == rhs.id
     }
+}
+
+enum CommandCode: String {
+    case code
+    case count
+    case reset
+    case back
 }
