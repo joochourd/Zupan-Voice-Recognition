@@ -4,7 +4,7 @@ import SwiftUI
 struct ZupanApp: App {
     var body: some Scene {
         WindowGroup {
-            SpreechRecognitionView()
+            LanguageSelectionView()
         }
     }
 }

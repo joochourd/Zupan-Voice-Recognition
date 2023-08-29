@@ -14,7 +14,7 @@ class SpeechRecognitionService {
     }
 
     private let audioEngine = AVAudioEngine()
-    private let speechRecognizer = SFSpeechRecognizer()
+    private let speechRecognizer = SFSpeechRecognizer(locale: Helper.shared.getLocale())
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
 
@@ -30,7 +30,6 @@ class SpeechRecognitionService {
         recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { [weak self] result, error in
             if let result = result {
                 self?._recognizedText = result.bestTranscription.formattedString
-                //self?.filterAndExecuteCommands()
             }
         }
 
@@ -48,5 +47,4 @@ class SpeechRecognitionService {
         recognitionRequest?.endAudio()
         audioEngine.inputNode.removeTap(onBus: 0)
     }
-
 }

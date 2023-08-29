@@ -8,11 +8,8 @@ struct Command {
 
     init?(commandCode: String, commandValue: String? = nil) {
         guard let commandCode = CommandCode(rawValue: commandCode)  else { return nil }
-
         self.commandCode = commandCode
         self.commandValue = commandValue
-
-
     }
 }
 

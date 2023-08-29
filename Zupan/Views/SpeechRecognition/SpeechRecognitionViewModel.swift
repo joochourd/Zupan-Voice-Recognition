@@ -28,17 +28,15 @@ class SpeechRecognitionViewModel: ObservableObject {
         print("Stop")
         isRecording = false
         speechRecognitionService.stopRecording()
-        commands = commandsService.recognizeCommands(recognizedText: recognizedText)
+//        commands = commandsService.recognizeCommands(recognizedText: recognizedText)
 //      Uncomment the following line to not have to speak through the test
-//        commands = commandsService.recognizeCommands(recognizedText: "code 2 3 4 count 60 2 code 1 2 reset code 1 1 2 count 5 back")
-        for command in commands {
-            print("Command name: \(command.commandCode) and command value: \(command.commandValue)" )
-        }
+        commands = commandsService.recognizeCommands(recognizedText: "code 2 3 4 count 60 2 code 1 2 reset code 1 1 2 count 5 back")
     }
 
     func startRecording() {
         print("Start")
         isRecording = true
+        commands = []
         speechRecognitionService.startRecording()
     }
 }

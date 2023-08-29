@@ -1,13 +1,17 @@
 import Foundation
 
 class CommandsService {
-    var lastCommand: Command?
-    var accumulatedParameters: [Int] = []
-    var accumulatedCommands: [Command] = []
+    var commandParamter = CommandParamaters()
+    let mappings = loadCommandMappings()
+    let currentLocale = Helper.shared.getLocale().identifier
+    let commandHandlers: [CommandHandler] = [ResetHandler(), CodeHandler(), CountHandler(), BackHandler()]
 
     func recognizeCommands(recognizedText: String) -> [Command] {
         reset()
-        let currentRecognizedWords = recognizedText.split(separator: " ").map { String($0).lowercased() }
+        let currentRecognizedWords: [String] = recognizedText
+            .split(separator: " ")
+            .map { String($0).lowercased() }
+            .map { getInternalCommandName($0, locale: currentLocale)}
 
         for word in currentRecognizedWords {
             if let parameter = getParamaterFrom(word) {
@@ -18,12 +22,12 @@ class CommandsService {
             }
             // If none, then ignore word
         }
-        return accumulatedCommands
+        return commandParamter.accumulatedCommands
     }
 
     private func handleParameter(_ paramter: Int) {
-        if lastCommand != nil {
-            accumulatedParameters.append(paramter)
+        if commandParamter.lastCommand != nil {
+            commandParamter.accumulatedParameters.append(paramter)
         }
     }
 
@@ -40,35 +44,21 @@ class CommandsService {
     }
 
     private func handleCommand(_ command: Command) {
-        switch command.commandCode {
-        case .code, .count:
-            saveLastCommand(command)
-            lastCommand = command
-        case .reset:
-            lastCommand = nil
-            accumulatedParameters = []
-        case .back:
-            saveLastCommand(command)
-            lastCommand = nil
-            accumulatedParameters = []
-            accumulatedCommands.removeLast()
-
+        for commandHandler in commandHandlers {
+            if commandHandler.respondsTo(command.commandCode.rawValue) {
+                commandHandler.execute(parameters: commandParamter, currentCommand: command)
+            }
         }
     }
 
-    private func saveLastCommand(_ command: Command) {
-        //if last command is found and values are stored, then save that command
-        if var command = lastCommand, !accumulatedParameters.isEmpty {
-            command.commandValue = accumulatedParameters.map { String($0) }.joined()
-            accumulatedCommands.append(command)
-            lastCommand = nil
-            accumulatedParameters = []
-        }
-
-    }
     private func reset() {
-        lastCommand = nil
-        accumulatedParameters = []
-        accumulatedCommands = []
+        commandParamter.lastCommand = nil
+        commandParamter.accumulatedParameters = []
+        commandParamter.accumulatedCommands = []
     }
+
+    func getInternalCommandName(_ recognizedCommand: String, locale: String) -> String {
+        return mappings?[locale]?[recognizedCommand] ?? recognizedCommand
+    }
+        
 }

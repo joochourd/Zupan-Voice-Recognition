@@ -1,0 +1,14 @@
+{
+    "en_US": {
+        "code": "code",
+        "count": "count",
+        "reset": "reset",
+        "back": "back"
+    },
+    "es_ES": {
+        "codigo": "code",
+        "contar": "count",
+        "reiniciar": "reset",
+        "atras": "back"
+    }
+}
