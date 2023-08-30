@@ -6,22 +6,22 @@
         "back": "back"
     },
     "es_ES": {
-        "codigo": "code",
+        "código": "code",
         "contar": "count",
         "reiniciar": "reset",
-        "atras": "back"
+        "atrás": "back"
     },
     "fr_FR": {
         "code": "code",
         "compter": "count",
-        "reinitialiser": "reset",
+        "réinitialiser": "reset",
         "retour": "back"
     },
     "de_DE": {
         "code": "code",
-        "zaehlen": "count",
-        "zuruecksetzen": "reset",
-        "zurueck": "back"
+        "zählen": "count",
+        "zurücksetzen": "reset",
+        "zurück": "back"
     },
     "it_IT": {
         "codice": "code",
@@ -30,7 +30,7 @@
         "indietro": "back"
     },
     "pt_BR": {
-        "codigo": "code",
+        "código": "code",
         "contar": "count",
         "redefinir": "reset",
         "voltar": "back"

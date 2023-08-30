@@ -22,6 +22,7 @@ class CommandsService {
             }
             // If none, then ignore word
         }
+        saveLastCommand()
         return commandParamter.accumulatedCommands
     }
 
@@ -37,7 +38,7 @@ class CommandsService {
     }
 
     private func getParamaterFrom(_ word: String) -> Int? {
-        if let parameter = Int(word), parameter >= 0 && parameter <= 9 {
+        if let parameter = Int(word) { //, parameter >= 0 && parameter <= 9 {
             return parameter
         }
         return nil
@@ -57,8 +58,17 @@ class CommandsService {
         commandParamter.accumulatedCommands = []
     }
 
-    func getInternalCommandName(_ recognizedCommand: String, locale: String) -> String {
+    private func getInternalCommandName(_ recognizedCommand: String, locale: String) -> String {
         return mappings?[locale]?[recognizedCommand] ?? recognizedCommand
+    }
+
+    private func saveLastCommand() {
+        if var command = commandParamter.lastCommand, !commandParamter.accumulatedParameters.isEmpty {
+            command.commandValue = commandParamter.accumulatedParameters.map { String($0) }.joined()
+            commandParamter.accumulatedCommands.append(command)
+            commandParamter.lastCommand = nil
+            commandParamter.accumulatedParameters = []
+        }
     }
         
 }
