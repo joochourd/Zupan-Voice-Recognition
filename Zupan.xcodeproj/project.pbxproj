@@ -130,11 +130,10 @@
 		3F6094012A992CF800B928A0 /* Zupan */ = {
 			isa = PBXGroup;
 			children = (
+				3FF2F0712A9FBFFF002DC45E /* Domain */,
 				3FF2F0682A9EA200002DC45E /* Views */,
 				3FF2F0542A9E822B002DC45E /* Handlers */,
 				3F6094442A9BF95A00B928A0 /* Servicies */,
-				3F6094022A992CF800B928A0 /* ZupanApp.swift */,
-				3F6094362A995B9800B928A0 /* Commands.swift */,
 				3F6094082A992CFA00B928A0 /* Preview Content */,
 			);
 			path = Zupan;
@@ -240,6 +239,15 @@
 				3F6094322A99554B00B928A0 /* SpeechRecognitionViewModel.swift */,
 			);
 			path = SpeechRecognition;
+			sourceTree = "<group>";
+		};
+		3FF2F0712A9FBFFF002DC45E /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3F6094022A992CF800B928A0 /* ZupanApp.swift */,
+				3F6094362A995B9800B928A0 /* Commands.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
