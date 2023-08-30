@@ -1,0 +1,38 @@
+{
+    "en_US": {
+        "code": "code",
+        "count": "count",
+        "reset": "reset",
+        "back": "back"
+    },
+    "es_ES": {
+        "código": "code",
+        "contar": "count",
+        "reiniciar": "reset",
+        "atrás": "back"
+    },
+    "fr_FR": {
+        "code": "code",
+        "compter": "count",
+        "réinitialiser": "reset",
+        "retour": "back"
+    },
+    "de_DE": {
+        "code": "code",
+        "zählen": "count",
+        "zurücksetzen": "reset",
+        "zurück": "back"
+    },
+    "it_IT": {
+        "codice": "code",
+        "contare": "count",
+        "ripristinare": "reset",
+        "indietro": "back"
+    },
+    "pt_BR": {
+        "código": "code",
+        "contar": "count",
+        "redefinir": "reset",
+        "voltar": "back"
+    }
+}
