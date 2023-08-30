@@ -4,7 +4,6 @@ struct Command {
     let id = UUID()
     let commandCode: CommandCode
     var commandValue: String?
-//    var possibleCommands = ["code","count","reset","back"]
 
     init?(commandCode: String, commandValue: String? = nil) {
         guard let commandCode = CommandCode(rawValue: commandCode)  else { return nil }

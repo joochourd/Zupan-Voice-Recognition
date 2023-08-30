@@ -27,7 +27,6 @@ class LanguageSelectionViewModel: ObservableObject {
     }
 
     func proceedToApp() {
-        // Implement logic to proceed to the rest of the app
         print("Proceeding with selected language: \(selectedLanguage)")
     }
 }
